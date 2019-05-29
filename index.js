@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require('cors');
 const routes = require('./routes');
-// const middleware = require('./middlewares');
 const db = require('./models');
 const app = express();
 
@@ -20,7 +19,6 @@ app.use((req, res, next ) => {
 })
 app.use("/", routes);
 
-// app.use(middleware.notFound);
 
 // Start up server and begin listen to requests
 db.connectDb().then(() => {
