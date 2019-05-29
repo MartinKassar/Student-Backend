@@ -21,7 +21,7 @@ localhost:3000
 * **CURL**
  ```
 // we use curl in our terminal to be able to send requests. 
-Exampel: curl -X GET "localhost:3000/users" 
+Exampel: curl -X GET "localhost:3000/students" 
 
 Exampel: 
 curl --help
@@ -32,13 +32,13 @@ This will get information about different options you can use with curl
  
   * **Brew for mac**
  ```
-"So, Homebrew is a package manager for OS X that allows a user to easily install software from the larger body of UNIX and open source software on the Mac" 
+"So, Homebrew is a package manager for OS X that allows a student to easily install software from the larger body of UNIX and open source software on the Mac" 
 source:
 https://www.quora.com/What-is-Homebrew-for-OS-X
 
 
 Paste that in a macOS Terminal: 
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubstudentcontent.com/Homebrew/install/master/install)"
  ```
  * **Chocolatey for Windows**
  ```
@@ -55,7 +55,7 @@ https://chocolatey.org/
  //We use jq in our request to make it more readable. 
  Install jq by typing this in your terminal: brew install jq
  Now we can do requests that looks nicer
- Exampel: curl -X GET "localhost:3000/users"  | jq
+ Exampel: curl -X GET "localhost:3000/students"  | jq
  ```
 
 
@@ -97,7 +97,7 @@ X-Powered-By: Express
  ```
  //Mongoose is an NPM lib used to communicate with a mongodb database.
 
-This example can add a user and will respond with the user added
+This example can add a student and will respond with the student added
 
 Setting it up from scratch
 Paste that in your Terminal: 
@@ -114,31 +114,31 @@ npm start
   
 
 *  **URL Params**
-   /users/{userId}  
+   /students/{studentId}  
    /posts/{postId}
 
 
-* **Sample Call Users:**
+* **Sample Call students:**
 ```
-curl localhost:3000/users | jq
-curl localhost:3000/users/{_id} | jq
+curl localhost:3000/students | jq
+curl localhost:3000/students/{_id} | jq
 ```
 
 
-* **GET** -users
+* **GET** -students
 ```
 //request
-curl -X GET "localhost:3000/users" | jq
+curl -X GET "localhost:3000/students" | jq
 
 //response
  {
-    "user": {
+    "student": {
       "name": {
         "firstName": "Michele",
         "lastName": "Byman"
       },
       "email": "michelebyman@gmail.com",
-      "userName": "Miche"
+      "studentName": "Miche"
     },
     "_id": "5ce646a0162aa905197ab93b",
     "__v": 0
@@ -146,20 +146,20 @@ curl -X GET "localhost:3000/users" | jq
 ```
 
 
-* **POST** -users
+* **POST** -students
 ```
 //request
-curl -X POST "localhost:3000/users" -H "accept: application/json" -H "Content-Type: application/json" -d '{"user":{"email":"carham@hotmail.com", "userName":"CarlieCarham"}, "name":{"firstName":"Charlie", "lastName":"Carham"}}' | jq
+curl -X POST "localhost:3000/students" -H "accept: application/json" -H "Content-Type: application/json" -d '{"student":{"email":"carham@hotmail.com", "studentName":"CarlieCarham"}, "name":{"firstName":"Charlie", "lastName":"Carham"}}' | jq
 
 //response
 {
-"user": {
+"student": {
     "name": {
       "firstName": "Marcus",
       "lastName": "Andersson"
     },
     "email": "michelebyman@gmail.com",
-    "userName": "Miche"
+    "studentName": "Miche"
   },
   "_id": "5ce66dfb038f2b37a9c0fe8d",
   "__v": 0
@@ -167,17 +167,17 @@ curl -X POST "localhost:3000/users" -H "accept: application/json" -H "Content-Ty
 ```
 
 
-* **PATCH** -users
+* **PATCH** -students
 ```
-// In this example you should change the _id ( "localhost:3000/users/ThisIsWhereYouChange_id" ) and what ever you want to change in the object, this will ONLY overwrite what you want to  change, but you will receive the object you sent and when you do a new get you will see the updated version.
+// In this example you should change the _id ( "localhost:3000/students/ThisIsWhereYouChange_id" ) and what ever you want to change in the object, this will ONLY overwrite what you want to  change, but you will receive the object you sent and when you do a new get you will see the updated version.
 Example: You could use PATCH method to update title. 
 
 //request
 
-curl -X PATCH "localhost:3000/users/5cebb18246663222daad4f25" -H "accept: application/json" -H "Content-Type: application/json" -d '
+curl -X PATCH "localhost:3000/students/5cebb18246663222daad4f25" -H "accept: application/json" -H "Content-Type: application/json" -d '
 {
-  "user":{
-    "userName":"öklööäööööö",
+  "student":{
+    "studentName":"öklööäööööö",
     "email":"öööööö@gmail.com",
     "name":{
       "firstName":"ööööö",
@@ -186,12 +186,12 @@ curl -X PATCH "localhost:3000/users/5cebb18246663222daad4f25" -H "accept: applic
 
 //response
       {
-  "user": {
+  "student": {
     "name": {
       "firstName": "janessa",
       "lastName": "janessa"
     },
-    "userName": "hello",
+    "studentName": "hello",
     "email": "kalle@gmail.com"
   },
   "_id": "5cebb18246663222daad4f25",
@@ -199,16 +199,16 @@ curl -X PATCH "localhost:3000/users/5cebb18246663222daad4f25" -H "accept: applic
 }
 ```
 
-* **PUT** -users
+* **PUT** -students
 ```
-// In this example you should change the _id ( "localhost:3000/users/ThisIsWhereYouChange_id" ) and what ever you want to CHANGE in the object, this will overwrite the WHOLE object if the object does not exist it will create a new object with unique _id that you send with it
+// In this example you should change the _id ( "localhost:3000/students/ThisIsWhereYouChange_id" ) and what ever you want to CHANGE in the object, this will overwrite the WHOLE object if the object does not exist it will create a new object with unique _id that you send with it
 
 //request
 
-curl -X PUT "localhost:3000/users/5cebd8b60f81ca2b9158e8be" -H "accept: application/json" -H "Content-Type: application/json" -d '
+curl -X PUT "localhost:3000/students/5cebd8b60f81ca2b9158e8be" -H "accept: application/json" -H "Content-Type: application/json" -d '
 {
-  "user":{
-    "userName":"ök",
+  "student":{
+    "studentName":"ök",
     "email":"öö@gmail.com",
     "name":{
       "firstName":"aaaaa",
@@ -218,13 +218,13 @@ curl -X PUT "localhost:3000/users/5cebd8b60f81ca2b9158e8be" -H "accept: applicat
       //response
 
   {
-    "user": {
+    "student": {
       "name": {
         "firstName": "öääää",
         "lastName": "ääääääö"
       },
       "email": "lalallalalala@gmail.com",
-      "userName": "lalalalalalalala"
+      "studentName": "lalalalalalalala"
     },
     "_id": "5cebd8b60f81ca2b9158e8be",
     "__v": 0
@@ -233,12 +233,12 @@ curl -X PUT "localhost:3000/users/5cebd8b60f81ca2b9158e8be" -H "accept: applicat
 ```
 
 
-* **DELETE** -users
+* **DELETE** -students
 ```
-//  In this example you should change the _id ( "localhost:3000/users/ThisIsWhereYouChange_id" ) and this request will DELETE the post with that unique _id
+//  In this example you should change the _id ( "localhost:3000/students/ThisIsWhereYouChange_id" ) and this request will DELETE the post with that unique _id
 
 //request
-curl -X DELETE "localhost:3000/users/5ce809cdc2b01d0317a13e0c" -H "accept: application/json" | jq
+curl -X DELETE "localhost:3000/students/5ce809cdc2b01d0317a13e0c" -H "accept: application/json" | jq
 
 //response
 {
@@ -256,7 +256,7 @@ curl -X DELETE "localhost:3000/users/5ce809cdc2b01d0317a13e0c" -H "accept: appli
 
 // here we use -i to get info about the request, this is something that you can do instead of | jq 
 
-curl -X DELETE "localhost:3000/users/5ce80a02c2b01d0317a13e0d" -H "accept: application/json" -i
+curl -X DELETE "localhost:3000/students/5ce80a02c2b01d0317a13e0d" -H "accept: application/json" -i
 
 HTTP/1.1 200 OK
 X-Powered-By: Express
@@ -267,7 +267,7 @@ ETag: W/"97-EkBzpAaounB/HiYjjJ8HaTFWz5w"
 Date: Fri, 24 May 2019 18:04:04 GMT
 Connection: keep-alive
 
-{"user":{"name":{"firstName":"Charlie","lastName":"Carham"},"email":"kalle@gmail.com","userName":"KalleAnka"},"_id":"5ce809cdc2b01d0317a13e0c","__v":0}%
+{"student":{"name":{"firstName":"Charlie","lastName":"Carham"},"email":"kalle@gmail.com","studentName":"KalleAnka"},"_id":"5ce809cdc2b01d0317a13e0c","__v":0}%
 ```
 
 
@@ -303,8 +303,8 @@ curl -X GET "localhost:3000/posts" | jq
 
 * **POST** -posts
 ```
-// In this example you you will post (create) a new post to the posts-path ??? rewrite -> (if user hits same requests 2 times it would create another new resource if there is no constraint.)
-Example: Use POST method to save new user, it will get a unique _id.
+// In this example you you will post (create) a new post to the posts-path ??? rewrite -> (if student hits same requests 2 times it would create another new resource if there is no constraint.)
+Example: Use POST method to save new student, it will get a unique _id.
 
 //request
 curl -X POST "localhost:3000/posts" -H "accept: application/json" -H "Content-Type: application/json" -d '{ "post": { "title":"Best example", "body": "Here comes a perfect text"}, "author": { "firstName": "Michele", "lastName":"Byman" }}' | jq
@@ -425,9 +425,9 @@ Connection: keep-alive
 
 * **Data Params**
  ```
-  user: {
-            email: req.body.user.email,
-            userName: req.body.user.userName,
+  student: {
+            email: req.body.student.email,
+            studentName: req.body.student.studentName,
             name: {
                 firstName: req.body.name.firstName,
                 lastName: req.body.name.lastName
@@ -482,7 +482,7 @@ localhost:3000/someparam -H "key: value"
 the value of this parameter is avaulable as req.header.key
 
 ******************* 
-Example: curl -X GET “localhost:3000/users?userName=thisIsWhereYourUserNameShouldBe”  | jq
+Example: curl -X GET “localhost:3000/students?studentName=thisIsWhereYourstudentNameShouldBe”  | jq
 ```
 
 
@@ -596,7 +596,7 @@ Example: curl -X POST "localhost:3000/posts" -H "accept: application/json" -H "C
 
 //This is a bad request with status code 404 which uses our middleware
 
-Example:  curl "localhost:3000/usersj"
+Example:  curl "localhost:3000/studentsj"
 
 404 - This page does not exist!
 ```

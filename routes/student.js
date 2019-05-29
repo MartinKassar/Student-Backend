@@ -5,21 +5,21 @@ get = (req, res, next) => {
 
     var query;
     if (req.query.name) {
-        query = req.models.User.findOne({ 'name': req.query.name });
+        query = req.models.student.findOne({ 'name': req.query.name });
     } else {
-        query = req.models.User.find();
+        query = req.models.student.find();
     }
 
     query
         .exec()
-        .then(user => {
-            return res.send(user);
+        .then(student => {
+            return res.send(student);
         })
         .catch(error => next(error));
 };
 
 post = (req, res, next) => {
-    req.models.User.create({
+    req.models.student.create({
         students: {
             email: req.body.students.email,
             name: req.body.students.name,
@@ -30,8 +30,8 @@ post = (req, res, next) => {
             }
         }
     })
-        .then(user => {
-            return res.status(201).send(user);
+        .then(student => {
+            return res.status(201).send(student);
         })
         .catch(error => {
             next(error);
@@ -39,15 +39,15 @@ post = (req, res, next) => {
 };
 
 getById = (req, res, next) => {
-    req.models.User.findById(req.params.id)
-        .then(user => {
-            return res.send(user);
+    req.models.student.findById(req.params.id)
+        .then(student => {
+            return res.send(student);
         })
         .catch(error => next(error));
 };
 
 deleteById = (req, res, next) => {
-    req.models.User.findByIdAndDelete({ _id: req.params.id })
+    req.models.student.findByIdAndDelete({ _id: req.params.id })
         .then(deleted => {
             if (deleted) return res.send(deleted).status(200);
             res.sendStatus(204);
@@ -56,7 +56,7 @@ deleteById = (req, res, next) => {
 };
 
 put = (req, res, next) => {
-    req.models.User.updateOne(
+    req.models.student.updateOne(
         { _id: req.params.id },
         {
             students: {
@@ -87,7 +87,7 @@ put = (req, res, next) => {
 };
 
 patch = (req, res, next) => {
-    req.models.User.findByIdAndUpdate(
+    req.models.student.findByIdAndUpdate(
         req.params.id,
         {
             $set: dotify(req.body)
@@ -96,9 +96,9 @@ patch = (req, res, next) => {
             returnNewDocument: true
         }
     )
-        .then(user => {
-            console.log(user);
-            res.send(user);
+        .then(student => {
+            console.log(student);
+            res.send(student);
         })
         .catch(error => next(error));
 };
@@ -123,7 +123,7 @@ module.exports = {
 //        "ort": "Växjö"   
 //        }
 //     }
-// curl -X POST "localhost:3000/users" -H "accept: application/json" -H "Content-Type: application/json" -d 'students: {
+// curl -X POST "localhost:3000/students" -H "accept: application/json" -H "Content-Type: application/json" -d 'students: {
 //         "email": "pelle.kanin@ecut.com",
 //         "name": "Pelle kanin",
 //         "address": {
@@ -133,4 +133,4 @@ module.exports = {
 //            }
 //         }' | jq
 
-// curl -X PUT "localhost:3000/users" -H "accept: application/json" -H "Content-Type: application/json" -d '{"students":{"email":"student@mai.com", "name":"Martin", "address":{"street":"Smedsängen", "zipcode":"12231", "city":"växjö"}}}' | jq
+// curl -X PUT "localhost:3000/students" -H "accept: application/json" -H "Content-Type: application/json" -d '{"students":{"email":"student@mai.com", "name":"Martin", "address":{"street":"Smedsängen", "zipcode":"12231", "city":"växjö"}}}' | jq
