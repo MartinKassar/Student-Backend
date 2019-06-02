@@ -31,8 +31,8 @@ PATCH: PATCH metoden används för att modifiera ett existerande objekt.
  
   * På vilka tre sätt kan man skicka in parametrar i en HTTP-request? Ge exempel med curl.
  ```
-Med path: curl http://api.softhouse.rocks/users
-Med en path till en route till en endpoint med ett ID: http://api.softhouse.rocks/users/1
-Med query: curl http://api.softhouse.rocks/users?page=2
+Med path: curl -X GET http://api.softhouse.rocks/users
+Med en path till en route till en endpoint med ett ID: curl -X GET http://api.softhouse.rocks/users/1
+Med query: curl -X GET http://api.softhouse.rocks/users?page=2
 
  ```
