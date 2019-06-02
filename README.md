@@ -1,6 +1,6 @@
 **Martin Kassar inlämningsuppgift 1**
 ----
-* Hur används HTTP-protokollet när du surfar in på en websida? Beskriv vilken metod, path, URI, response code och body som skickas in och svarar. Om du har svårt att bestämma dig för en url, ta ex. http://www.smp.se/kultur-noje/ *
+* Hur används HTTP-protokollet när du surfar in på en websida? Beskriv vilken metod, path, URI, response code och body som skickas in och svarar. Om du har svårt att bestämma dig för en url, ta ex. http://www.smp.se/kultur-noje/ 
 
 ```
 Man använder en GET metod för att få en response code från länken, där pathen är "kultur-noje". Det man får som response code är HTML
