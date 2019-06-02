@@ -8,8 +8,8 @@ Man använder en GET metod för att få en response code från länken, där pat
 
 
 
-* **"http://localhost:3000/users?username=something" är en URI, beskriv vilka delar den består av och vad de kallas.
-**
+* "http://localhost:3000/users?username=something" är en URI, beskriv vilka delar den består av och vad de kallas.
+
 ```
 http: är schemat
 "localhost:300" är authority
@@ -19,7 +19,7 @@ http: är schemat
 ```
 
 
-* **Beskriv HTTP-protokollets vanligaste metoder och vad de gör.**
+* Beskriv HTTP-protokollets vanligaste metoder och vad de gör.
  ```
 GET: GET metoden skickar en request att få en kopia av en resurs. GET requets borde endast ta emot data.
 POST: POST metoden används för att skicka in ett nytt objekt.
@@ -29,7 +29,7 @@ PATCH: PATCH metoden används för att modifiera ett existerande objekt.
  ```
 
  
-  * **På vilka tre sätt kan man skicka in parametrar i en HTTP-request? Ge exempel med curl.**
+  * På vilka tre sätt kan man skicka in parametrar i en HTTP-request? Ge exempel med curl.
  ```
 Med path: curl http://api.softhouse.rocks/users
 Med en path till en endpoint till en till path med ett ID: http://api.softhouse.rocks/users/1
