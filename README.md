@@ -1,32 +1,36 @@
-**API Exercise**
+//Hur används HTTP-protokollet när du surfar in på en websida? Beskriv vilken metod, path, URI, response code och body som skickas in och svarar. Om du har svårt att bestämma dig för en url, ta ex. http://www.smp.se/kultur-noje/
+Beskriv HTTP-protokollets vanligaste metoder och vad de gör.
+"http://localhost:3000/users?username=something" är en URI, beskriv vilka delar den består av och vad de kallas.
+På vilka tre sätt kan man skicka in parametrar i en HTTP-request? Ge exempel med curl.
+
+**Martin Kassar inlämningsuppgift 1**
 ----
-* **All you need to set up this on your computer should be below**
+* **Hur används HTTP-protokollet när du surfar in på en websida? Beskriv vilken metod, path, URI, response code och body som skickas in och svarar. Om du har svårt att bestämma dig för en url, ta ex. http://www.smp.se/kultur-noje/ **
 
-* **Start by cloning or downloading the repository**
 ```
-When that is done navigate to the folder and Paste this in your terminal: 
-npm install 
-
-This will install all the dependencies you need for this project and give you the latest updates. 
+Man använder en GET metod för att få en response code från länken, där pathen är "kultur-noje". Det man får som response code är HTML
 ```
 
 
 
-* **URL**
+* **"http://localhost:3000/users?username=something" är en URI, beskriv vilka delar den består av och vad de kallas.
+**
 ```
-localhost:3000
+http: är schemat
+"localhost:300" är authority
+"/users" är path
+?username=something är query
+
 ```
 
 
-* **CURL**
+* **Beskriv HTTP-protokollets vanligaste metoder och vad de gör.**
  ```
-// we use curl in our terminal to be able to send requests. 
-Exampel: curl -X GET "localhost:3000/students" 
-
-Exampel: 
-curl --help
-
-This will get information about different options you can use with curl
+GET: GET metoden skickar en request att få en kopia av en resurs. GET requets borde endast ta emot data.
+POST: POST metoden används för att skicka in ett nytt objekt.
+PUT: PUT metoden ersätter ett existeraned objekt som man kan identifiera med ett unikt ID, annars skapar den ett nytt objekt istället.
+DELETE: DELETE metoden raderar objektet du speciferar i ditt anrop.
+PATCH: PATCH metoden används för att modifiera ett existerande objekt.
  ```
 
  
