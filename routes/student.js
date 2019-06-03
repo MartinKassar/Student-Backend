@@ -114,23 +114,3 @@ module.exports = {
 
 
 
-// students: {
-//     "email": "pelle.kanin@ecut.com"
-//     "name": "Pelle kanin",
-//     "address": {
-//        "gata": " Framtidsvägen 10A",
-//        "postnummer": "352 57",
-//        "ort": "Växjö"   
-//        }
-//     }
-// curl -X POST "localhost:3000/students" -H "accept: application/json" -H "Content-Type: application/json" -d 'students: {
-//         "email": "pelle.kanin@ecut.com",
-//         "name": "Pelle kanin",
-//         "address": {
-//            "gata": " Framtidsvägen 10A",
-//            "postnummer": "352 57",
-//            "ort": "Växjö"   
-//            }
-//         }' | jq
-
-// curl -X PUT "localhost:3000/students" -H "accept: application/json" -H "Content-Type: application/json" -d '{"students":{"email":"student@mai.com", "name":"Martin", "address":{"street":"Smedsängen", "zipcode":"12231", "city":"växjö"}}}' | jq
