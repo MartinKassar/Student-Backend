@@ -36,3 +36,9 @@ Med en path till en route till en endpoint med ett ID: curl -X GET http://api.so
 Med query: curl -X GET http://api.softhouse.rocks/users?page=2
 
  ```
+
+ *Feedback.
+ ```
+Det gick fort i början men när vi började med gruppuppgifterna blev det enklare att förstå då man kunde ta hjälp av varandra och testa med varandra vilker underlättade.
+
+ ```
