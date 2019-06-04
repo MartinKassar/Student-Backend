@@ -5,7 +5,7 @@ get = (req, res, next) => {
 
     var query;
     if (req.query.name) {
-        query = req.models.student.findOne({ 'name': req.query.name });
+        query = req.models.student.findOne({ 'students.name': req.query.name });
     } else {
         query = req.models.student.find();
     }
